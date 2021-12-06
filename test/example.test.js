@@ -6,11 +6,8 @@ import {
 
 const test = QUnit.test;
 
-test('renderTeam should display the current name and score for a given team', (expect) => {
+test('renderTeam should create teamDiv, fill it with nameDiv and ScoreDiv, and populate them with the name and score respectively', (expect) => {
     //Arrange
-    const teamDiv = document.createElement('div');
-    const nameDiv = document.createElement('p');
-    const scoreDiv = document.createElement('p');
     // Set up your arguments and expectations
     const expected = teamDiv.append('Sam', 8);
     
