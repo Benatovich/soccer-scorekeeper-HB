@@ -1,5 +1,8 @@
 // IMPORT MODULES under test here:
-// import { example } from '../example.js';
+import { 
+    // myFunction,
+    renderGame,
+} from '../functions.js';
 
 const test = QUnit.test;
 
