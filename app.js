@@ -1,5 +1,5 @@
 // import functions and grab DOM elements
-import { renderGame } from './render-utils.js';
+import { renderGame, renderPastGame } from './render-utils.js';
 const currentGameEl = document.getElementById('current-game-container');
 const pastGamesEl = document.getElementById('past-games-container');
 
@@ -14,7 +14,7 @@ const teamTwoLabel = document.getElementById('team-two-name');
 
 
 // create an array to hold on to the state of past games
-const pastGames = [];
+const pastGamesArray = [];
 let currentGame = {
     name1: '',
     name2: '',
@@ -69,7 +69,7 @@ teamTwoSubtractButton.addEventListener('click', () => {
 
 finishGameButton.addEventListener('click', () => {
     // add the current game to an array of games in state.
-    pastGames.push(currentGame);
+    pastGamesArray.push(currentGame);
     // HINT: it will be helpful to keep track of these games as objects with 4 properties, one for each piece of state we're tracking
 
     displayAllGames();
@@ -97,10 +97,16 @@ function displayCurrentGameEl() {
 
 function displayAllGames() {
     // clear out the past games list in the DOM
-
+    pastGamesEl.textContent = '';
     // loop through the past games in state
+    for (let pastGame of pastGamesArray) {
+        const container = renderPastGame(pastGame);
+        pastGamesEl.append(container);
+    }
     // render and append a past game for each past game in state
+    
 }
 
 
-// displayCurrentGameEl();
+
+displayCurrentGameEl();
