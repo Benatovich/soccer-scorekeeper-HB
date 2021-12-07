@@ -11,17 +11,17 @@ export function renderGame(game) {
     return div;
 }
 
-export function renderPastGame(pastGame) {
-    const div = document.createElement('div');
-    const team1Div = renderTeam(pastGame.name1, pastGame.score1);
-    const team2Div = renderTeam(pastGame.name2, pastGame.score2);
+// export function renderPastGame(pastGame) {
+//     const div = document.createElement('div');
+//     const team1Div = renderTeam(pastGame.name1, pastGame.score1);
+//     const team2Div = renderTeam(pastGame.name2, pastGame.score2);
 
-    div.append(team1Div, team2Div);
+//     div.append(team1Div, team2Div);
 
-    div.classList.add('game');
+//     div.classList.add('game');
 
-    return div;
-}
+//     return div;
+// }
 
 export function renderTeam(name, score) {
     const teamDiv = document.createElement('div');

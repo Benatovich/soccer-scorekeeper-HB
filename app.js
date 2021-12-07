@@ -1,5 +1,5 @@
 // import functions and grab DOM elements
-import { renderGame, renderPastGame } from './render-utils.js';
+import { renderGame, renderTeam, } from './render-utils.js';
 const currentGameEl = document.getElementById('current-game-container');
 const pastGamesEl = document.getElementById('past-games-container');
 
@@ -75,6 +75,13 @@ finishGameButton.addEventListener('click', () => {
     displayAllGames();
 
     // reset the initial state to start with a new form
+    currentGame = {
+        name1: '',
+        name2: '',
+        score1: 0,
+        score2: 0,
+    };
+
 
     displayCurrentGameEl();
 });
@@ -90,22 +97,26 @@ function displayCurrentGameEl() {
 
     // call the render game function to create a game element
     const gameEl = renderGame(currentGame);
+    gameEl.classList.add('current');
     // append the element to the cleared out current game div
     currentGameEl.append(gameEl);
 }
-
 
 function displayAllGames() {
     // clear out the past games list in the DOM
     pastGamesEl.textContent = '';
     // loop through the past games in state
-    for (let pastGame of pastGamesArray) {
-        const container = renderPastGame(pastGame);
-        pastGamesEl.append(container);
+    for (let game of pastGamesArray) {
+        const gameEl = renderGame(game);
+
+        gameEl.classList.add('past');
+
+        pastGamesEl.append(gameEl);
     }
+}
     // render and append a past game for each past game in state
     
-}
+
 
 
 
